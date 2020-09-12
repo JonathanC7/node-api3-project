@@ -17,8 +17,6 @@ router.post('/', validateUser, (req, res) => {
 });
 
 router.post('/:id/posts', validatePost, (req, res) => {
-  const { id } = req.params;
-
       Posts.insert(req.body)
         .then(inserted => {
           res.status(200).json(inserted)
@@ -72,7 +70,6 @@ router.get('/:id/posts', (req, res) => {
 });
 
 router.delete('/:id', validateUserId, (req, res) => {
-
   Users.remove(req.user.id)
         .then(removed => {
           res.status(200).json(req.user);
